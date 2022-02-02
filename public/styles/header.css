@@ -1,0 +1,18 @@
+#heading {
+  height: 400px;
+  width: 100%;
+  background-color: rgba(180, 69, 66, 0.438);
+  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
