@@ -17,16 +17,34 @@ html {
  */
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro";
-  margin: auto;
+  background-color: rgb(223, 220, 219);
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
   width: 90%;
+
+  margin: auto;
+  font-family: "Source Sans Pro", sans-serif;
 }
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+main {
+  display: flex;
+  text-align: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(223, 220, 219);
+  padding: 20px 0px;
+  flex-direction: column;
+  justify-content: space-evenly;
+}

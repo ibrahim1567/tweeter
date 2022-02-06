@@ -27,19 +27,3 @@ nav {
   position: relative;
   font-size: 45px;
 }
-
-.row1 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.row2 {
-  display: flex;
-  flex-basis: 60%;
-  justify-content: flex-end;
-  /* border: 2px dashed brown; */
-}
-
-.row2 img {
-  padding-right: 90px;
-}
