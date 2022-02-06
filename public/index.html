@@ -17,10 +17,12 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="./styles/tweets.css" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
     type="text/css" />
      <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
 
     <!-- App JS -->
   <script defer type="text/javascript" src="/scripts/client.js"></script>
@@ -53,18 +55,36 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST"></formaction>
-          <div class="tweet-box"></div>
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div>
-            <div class="bottomline"></div>
+          <!-- <div class="input-box"> -->
+          <!-- <label for="tweet-text">What are you humming about?</label> -->
+        <!-- </div> -->
+        <textarea name="text" placeholder="What are you humming about?" id="tweet-text"></textarea>
+        <div class= "tweet-bottom">
+          <!-- <div class="bottomline"></div> -->
             <button type="submit">Tweet</button>
-            <div class="count"></div>
+              <!-- <div class="count"></div> -->
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </div>
         </form>
+      </section>
+      <section id = "tweets-container">
+        <article class="tweet">
+          <header>
+            <div>
+              <span class="avatar"></span>
+              <span class="name">Ibrahim Mohamed</span>
+            </div>
+            <span class="handle">Hoop Journey</span>
+          </header>
+          <p class="tweetInfo"> Follow my basketball discord!</p>
+          <footer>
+            <span class="date">10 days ago</span>
+            <span class ="icons"></span>
+          </footer>
+        </article>
       </section>      
     </main>
   </body>
 </html>
+
