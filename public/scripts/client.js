@@ -1,25 +1,19 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $(document).ready(function () {
+  
   const loadTweets = function() {
     $.ajax({ 
       method: 'GET',
       url: '/tweets',
       
     }).then((response) => {
-      console.log("RESPONSE: ");
-      console.log(response);
       renderTweets(response);
       // $('#tweet-text').val("");
       $(".counter").text(140);
     });
   };
-
+  loadTweets();
   $('#errorMessage').hide();
+  
 
   const renderTweets = function(tweets) {
     // loops through tweets
@@ -29,16 +23,16 @@ $(document).ready(function () {
     for (let tweet of tweets) {
       $('#tweets-container').prepend(createTweetElement(tweet));
     }
-  }
+  };
 
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
   
   const createTweetElement = function(tweet) {
-    let date = new Date(tweet.created_at).toLocaleDateString();
+    let date = timeago.format(tweet.created_at)
 
     return `
     <article class="tweet">
@@ -46,8 +40,8 @@ $(document).ready(function () {
       <div class="info">
         <img src=${tweet.user.avatars} class="avatar"/>
         <span class="name">${tweet.user.name}</span>
+        <span class="handle">${tweet.user.handle}</span>
       </div>
-      <span class="handle">${tweet.user.handle}</span>
     </header>
     <p class="tweetData">${escape(tweet.content.text)}</p>
     <footer>
@@ -59,10 +53,11 @@ $(document).ready(function () {
     </footer>
     </article>
     `
-  }
+  };
+  
   const $newTweet = $('#submit-tweet');
   // loadTweets();
-  $newTweet.on('submit', function (event) {
+  $newTweet.on('submit', function(event) {
     event.preventDefault();
     const tweet = $("#tweet-text").val().trim().length;
   if (!tweet) {
@@ -78,7 +73,7 @@ $(document).ready(function () {
       $('#errorMessage').delay(5000).slideUp("slow");
       return;
      } else {
-      const val = $( this).serialize();
+      const val = $(this).serialize();
       $.ajax("/tweets", {
         method: "POST",
         data: val,
@@ -93,6 +88,5 @@ $(document).ready(function () {
 
      }   
   });
-
 
 });
